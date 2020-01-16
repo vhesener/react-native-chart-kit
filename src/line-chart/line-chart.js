@@ -328,7 +328,7 @@ class LineChart extends AbstractChart {
               {withInnerLines
                 ? this.renderHorizontalLines({
                     ...config,
-                    count: count,
+                    segments,
                     paddingTop,
                     paddingRight
                   })

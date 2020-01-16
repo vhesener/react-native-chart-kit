@@ -25,6 +25,9 @@ export interface LineChartData extends ChartData {
   legend?: string[];
 }
 
+/** Describes how the horizontal lines are drawn along the y-axis */
+export type Segments = number | number[];
+
 // LineChart
 export interface LineChartProps {
   /**
@@ -186,9 +189,11 @@ export interface LineChartProps {
    */
   getDotProps?: (dataPoint: any, index: number) => object;
   /**
-   * The number of horizontal lines
+   * If a single `number` is provided, that many horizontal lines are drawn,
+   * evenly distributed. If an array of `number`s is provided,
+   * explicit horizontal lines will be drawn at each element's y-location.
    */
-  segments?: number;
+  segments?: Segments;
 }
 
 export class LineChart extends React.Component<LineChartProps> {}
@@ -222,9 +227,11 @@ export interface BarChartProps {
   horizontalLabelRotation?: number;
   verticalLabelRotation?: number;
   /**
-   * The number of horizontal lines
+   * If a single `number` is provided, that many horizontal lines are drawn,
+   * evenly distributed. If an array of `number`s is provided,
+   * explicit horizontal lines will be drawn at each element's y-location.
    */
-  segments?: number;
+  segments?: Segments;
   showBarTops?: boolean;
 }
 
@@ -258,9 +265,11 @@ export interface StackedBarChartProps {
   barPercentage?: number;
   hideLegend: boolean;
   /**
-   * The number of horizontal lines
+   * If a single `number` is provided, that many horizontal lines are drawn,
+   * evenly distributed. If an array of `number`s is provided,
+   * explicit horizontal lines will be drawn at each element's y-location.
    */
-  segments?: number;
+  segments?: Segments;
 }
 
 export class StackedBarChart extends React.Component<StackedBarChartProps> {}
